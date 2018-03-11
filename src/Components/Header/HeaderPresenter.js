@@ -47,14 +47,13 @@ const ListItem = styled.li`
   margin-right: 50px;
 `;
 
-const SLink = styled(Link)`
+const SLink = styled.span`
   text-decoration: none;
   font-weight: 600;
   color: ${props => (props.isActive ? "black" : "#676767")};
 `;
 
 const HeaderPresenter = props => {
-  console.log(props);
   return (
     <HeaderContainer>
       <HeaderWrapper>
@@ -64,25 +63,23 @@ const HeaderPresenter = props => {
         <Nav>
           <List>
             <ListItem>
-              <SLink isActive={window.location.pathname === "/"} to="/">
-                Home
-              </SLink>
+              <Link to="/">
+                <SLink isActive={window.location.pathname === "/"}>Home</SLink>
+              </Link>
             </ListItem>
             <ListItem>
-              <SLink
-                isActive={window.location.pathname === "/blocks"}
-                to="/blocks"
-              >
-                Blocks
-              </SLink>
+              <Link to="/blocks">
+                <SLink isActive={window.location.pathname === "/blocks"}>
+                  Blocks
+                </SLink>
+              </Link>
             </ListItem>
             <ListItem>
-              <SLink
-                isActive={window.location.pathname === "/transactions"}
-                to="/transactions"
-              >
-                Transactions
-              </SLink>
+              <Link to="/transactions">
+                <SLink isActive={window.location.pathname === "/transactions"}>
+                  Transactions
+                </SLink>
+              </Link>
             </ListItem>
           </List>
         </Nav>
