@@ -27,7 +27,11 @@ class AppContainer extends Component {
   }
   _getData = async () => {
     const request = await axios.get(`${API_URL}/blocks`);
-    console.log(request);
+    const blocks = request.data;
+    this.setState({
+      blocks,
+      isLoading: false
+    });
   };
 }
 
