@@ -42,7 +42,7 @@ class AppContainer extends Component {
   _connectToWs = () => {
     const ws = new WebSocket(WS_URL);
     ws.addEventListener("message", message => {
-      console.log(message);
+      const parsedMessage = parseMessage(message);
     });
   };
 }
