@@ -22,12 +22,13 @@ const HomePresenter = ({ blocks, transactions }) => (
       <h2>Latest Blocks</h2>
       <Card>
         <BlocksHeader />
-        {blocks.map(block => (
+        {blocks.map((block, index) => (
           <BlocksRow
             index={block.index}
             hash={block.hash}
             timestamp={makeDateSexy(block.timestamp)}
             difficulty={block.difficulty}
+            key={index}
           />
         ))}
       </Card>
@@ -36,12 +37,13 @@ const HomePresenter = ({ blocks, transactions }) => (
       <h2>Latest Transactions</h2>
       <Card>
         <TxHeader />
-        {transactions.map(transaction => (
+        {transactions.map((transaction, index) => (
           <TxRow
             timestamp={makeDateSexy(transaction.timestamp)}
             id={transaction.id}
             insOuts={`${transaction.txIns.length}/${transaction.txOuts.length}`}
             amount={sum(transaction.txOuts.map(txOut => txOut.amount))}
+            key={index}
           />
         ))}
       </Card>
