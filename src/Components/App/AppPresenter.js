@@ -23,7 +23,7 @@ const Main = styled.main`
   }
 `;
 
-const AppPresenter = ({ isLoading }) => (
+const AppPresenter = ({ isLoading, transations, blocks }) => (
   <BrowserRouter>
     <AppContainer>
       <Header />
